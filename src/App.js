@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar/Navbar.js'; 
+import Prediction from './components/Prediction/Prediction.js'
+
+// Import your component pages (Home, Prediction, Blog, etc.)
+import Home from './Home';
+// import Prediction from './Prediction';
+// import Blog from './Blog';
+
+// Consider importing relevant styling libraries if needed
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/prediction" element={<Prediction />} />
+          {/* <Route path="/blog" element={<Blog />} /> */}
+          {/* Add more routes for your component pages */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
+
 
 export default App;
